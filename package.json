@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
-	"version": "1.0.1",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"name": "obsidian-qol",
+	"version": "1.0.0",
+	"description": "Simple plugin for basic Quality of Life improvements",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -20,5 +20,6 @@
 		"obsidian": "latest",
 		"tslib": "2.3.1",
 		"typescript": "4.4.4"
-	}
+	},
+	"dependencies": {}
 }
