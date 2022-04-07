@@ -30,7 +30,7 @@ export default class MyPlugin extends Plugin {
 				return;	
 			}
 
-			const oldName = oldPath.slice(0, -3);
+			const oldName = oldPath.slice(0, -3).split("/").last();
 			var firstLine = view.editor.getLine(0);
 
 			//If the first line isn't a header, don't do anything
@@ -40,6 +40,8 @@ export default class MyPlugin extends Plugin {
 			//Get just the text of the title (remove "# ")
 			firstLine = firstLine.slice(2, firstLine.length)
 
+			console.log(oldName)
+			console.log(firstLine)
 			if(firstLine != oldName)
 				return;
 
@@ -104,11 +106,11 @@ export default class MyPlugin extends Plugin {
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// Using this function will automatically remove the event listener when this plugin is disabled.
 		this.registerDomEvent(document, 'click', (evt: MouseEvent) => {
-			console.log('click', evt);
+			//console.log('click', evt);
 		});
 
 		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
-		this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
+		//this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
 	}
 
 	onunload() {
