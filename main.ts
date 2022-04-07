@@ -33,6 +33,8 @@ export default class MyPlugin extends Plugin {
 			const oldName = oldPath.slice(0, -3).split("/").last();
 			var firstLine = view.editor.getLine(0);
 
+			if(firstLine == null)
+				return
 			//If the first line isn't a header, don't do anything
 			if(!firstLine.startsWith('# '))
 				return;
@@ -40,8 +42,6 @@ export default class MyPlugin extends Plugin {
 			//Get just the text of the title (remove "# ")
 			firstLine = firstLine.slice(2, firstLine.length)
 
-			console.log(oldName)
-			console.log(firstLine)
 			if(firstLine != oldName)
 				return;
 
