@@ -22,6 +22,8 @@ export default class MyPlugin extends Plugin {
 		//TODO add settings support.
 		this.registerEvent(this.app.vault.on('rename', (file, oldPath) => {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);
+			if(view == null)
+				return
 			
 			//If we're in a new file, auto do the heading
 			if(view.editor.getValue() == ""){
